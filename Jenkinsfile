@@ -12,7 +12,7 @@ node{
         withCredentials([string(credentialsId: 'Docker_Hub', variable: 'Docker_Hub')]) {
           sh "docker login -u lubern5 -p ${Docker_Hub}"
         }
-        sh "docker push lubern5/java-web-app-docker:${buildNumber} . "
+        sh 'docker push lubern5/java-web-app'
      }
      
       stage('Run Docker Image In Dev Server'){
