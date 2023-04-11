@@ -8,14 +8,9 @@ node{
     } 
     
     
-    stage('Build Docker Image'){
-        sh 'docker build -t lubern5/java-web-app .'
-    }
-    stage('Docker Login and Push'){
-        withCredentials([string(credentialsId: 'Docker_Hub', variable: 'Docker_Hub')]) {
-            sh "docker login -u docker lubern5 -p ${Docker_Hub}"
-    stage('Push Docker Image'){
-            sh "docker login -u lubern5 {
+   stage('Push Docker Image'){
+        withCredentials([string(credentialsId: 'Docker_Hub_Pwd', variable: 'Docker_Hub_Pwd')]) {
+          sh "docker login -u lubern5 -p ${Docker_Hub_Pwd}"
         }
         sh 'docker push lubern5/java-web-app'
      }
