@@ -13,7 +13,7 @@ node{
     }
     
     stage('Push Docker Image'){
-            sh "docker login -u lubern5 -p ${Docker_Hub_Pwd}"{
+            sh "docker login -u lubern5 {
         }
         sh 'docker push lubern5/java-web-app'
      }
